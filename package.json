@@ -1,0 +1,40 @@
+{
+  "name": "au_test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ed-zm/au-test.git"
+  },
+  "author": "Eduardo Zarraga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ed-zm/au-test/issues"
+  },
+  "homepage": "https://github.com/ed-zm/au-test#readme",
+  "dependencies": {
+    "antd": "^3.19.2",
+    "apollo-cache-inmemory": "^1.6.1",
+    "apollo-client": "^2.6.1",
+    "apollo-link": "^1.2.11",
+    "apollo-link-error": "^1.1.10",
+    "apollo-link-http": "^1.5.14",
+    "graphql": "^14.3.1",
+    "graphql-tag": "^2.10.1",
+    "isomorphic-unfetch": "^3.0.0",
+    "moment": "^2.24.0",
+    "next": "^8.0.4",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-apollo": "^2.5.6",
+    "react-dom": "^16.8.6",
+    "uniforms": "^2.0.0-alpha.1",
+    "uniforms-antd": "^2.0.0-alpha.1"
+  }
+}
