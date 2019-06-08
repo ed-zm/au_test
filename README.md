@@ -7,5 +7,5 @@
 ## Links
 
 - [Prisma End Point](https://thawing-ocean-56286.herokuapp.com/_admin)
-- [App](https://autest-clexdapkdh.now.sh/)
+- [App](https://autest-kzszhqjyrr.now.sh/)
 

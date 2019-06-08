@@ -12,7 +12,7 @@ const schema = new CustomSchema(
     timePicker: {
       __type__: Date,
       required: true,
-      initialValue: [moment({ h: 12, m: 0 }), moment({ h: 12, m: 0 })],
+      initialValue: [],
       label: 'Time'
     }
   },
