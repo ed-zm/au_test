@@ -12,7 +12,7 @@ const schema = new CustomSchema(
     timePicker: {
       __type__: Date,
       required: true,
-      initialValue: [moment(), moment()],
+      initialValue: [moment({ h: 12, m: 0 }), moment({ h: 12, m: 0 })],
       label: 'Time'
     }
   },
@@ -25,10 +25,10 @@ const schema = new CustomSchema(
       error.text = 'Text is required!'
     }
 
-    if (!model.timePicker) {
+    if (!model.timePicker.length) {
       error.timePicker = 'timePicker is required!'
     }
-    
+
     if(momentEndTime.diff(momentStartTime) < 0) {
       error.timePicker = 'Start Time cannot be greater than End Time'
     }

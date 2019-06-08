@@ -10,21 +10,22 @@ const Range = props =>
     props,
     <DatePicker.RangePicker
       showDate = { false }
-      defaultValue = { [moment(), moment()] }
+      defaultValue = { props.initialValue }
       mode = {['time', 'time']}
       showTime = {{
         hideDisabledOptions: true
       }}
       format = 'HH:mm'
-      disabled = {props.disabled}
-      id = {props.id}
-      name = {props.name}
-      onChange = { props.onChange }
-      placeholder = {props.placeholder}
+      disabled = { props.disabled }
+      id = { props.id }
+      name = { props.name }
+      onChange = { value => props.onChange(value) }
+      placeholder = { props.placeholder }
       ref = {props.inputRef}
       {...filterDOMProps(props)}
     />
   );
+
 Range.defaultProps = {
   style: {width: '100%'}
 };

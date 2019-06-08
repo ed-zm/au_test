@@ -8,7 +8,7 @@ import formSchema from '../shared/schemas/formSchema/index'
 import createPost from '../graphql/mutations/createPost'
 
 class Home extends Component {
-  onSubmit = async ({ text, timePicker: [ startTime, endTime ] }) => {
+  onSubmit = async ({ text, timePicker: [ startTime, endTime] }) => {
     const { createPost } = this.props
     console.log(`
       Text: ${text}
@@ -24,7 +24,7 @@ class Home extends Component {
 
   render() {
     const disabledTime = {
-      disabledHours: () => [1,2,3,4,5,6,7,8,9,10,11,12]
+      disabledHours: () => [0,1,2,3,4,5,6,7,8,9,10,11]
     }
     return(
       <Row align = 'middle' justify = 'center' type = 'flex'>
@@ -32,7 +32,7 @@ class Home extends Component {
           <div style = {{ height: '100vh' }}>
             <AutoForm schema = { formSchema } onSubmit = {this.onSubmit } showInlineError>
               <TextField required name = 'text'/>
-              <TimePicker required name = 'timePicker' disabledTime = {() => disabledTime }/>
+              <TimePicker placeholder = {['Start Time', 'End Time']} name = 'timePicker' disabledTime = {() => disabledTime } required/>
               <ErrorsField name = 'error'/>
               <SubmitField />
             </AutoForm>
