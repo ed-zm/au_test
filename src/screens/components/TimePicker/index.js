@@ -1,27 +1,32 @@
 import React from 'react'
 import { wrapField } from 'uniforms-antd'
-import { TimePicker } from 'antd'
+import { DatePicker } from 'antd'
 import connectField from 'uniforms/connectField'
 import filterDOMProps from 'uniforms/filterDOMProps'
 import moment from 'moment'
 
-const Date = props =>
+const Range = props =>
   wrapField(
     props,
-    <TimePicker
-      disabled={props.disabled}
-      id={props.id}
-      name={props.name}
-      onChange={value => props.onChange(value && value.toDate())}
-      placeholder={props.placeholder}
-      ref={props.inputRef}
-      value={props.value && moment(props.value)}
+    <DatePicker.RangePicker
+      showDate = { false }
+      defaultValue = { [moment(), moment()] }
+      mode = {['time', 'time']}
+      showTime = {{
+        hideDisabledOptions: true
+      }}
+      format = 'HH:mm'
+      disabled = {props.disabled}
+      id = {props.id}
+      name = {props.name}
+      onChange = { props.onChange }
+      placeholder = {props.placeholder}
+      ref = {props.inputRef}
       {...filterDOMProps(props)}
     />
   );
-Date.defaultProps = {
-  showTime: true,
+Range.defaultProps = {
   style: {width: '100%'}
 };
 
-export default connectField(Date, {ensureValue: false})
+export default connectField(Range, {ensureValue: false})

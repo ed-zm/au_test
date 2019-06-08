@@ -9,38 +9,28 @@ const schema = new CustomSchema(
       initialValue: '',
       label: 'Some Text'
     },
-    startTime: {
+    timePicker: {
       __type__: Date,
       required: true,
-      initialValue: new Date(),
-      label: 'Start Time'
-    },
-    endTime: {
-      __type__: Date,
-      required: true,
-      initialValue: new Date(),
-      label: 'End Time'
+      initialValue: [moment(), moment()],
+      label: 'Time'
     }
   },
   model => {
     const error = {};
-    const momentStartTime = moment(model.startTime)
-    const momentEndTime = moment(model.endTime)
+    const momentStartTime = moment(model.timePicker[0])
+    const momentEndTime = moment(model.timePicker[1])
 
     if (!model.text) {
       error.text = 'Text is required!'
     }
 
-    if (!model.startTime) {
-      error.startTime = 'Start Time is required'
+    if (!model.timePicker) {
+      error.timePicker = 'timePicker is required!'
     }
-
-    if (!model.endTime) {
-      error.endTime = 'End Time is required'
-    }
+    
     if(momentEndTime.diff(momentStartTime) < 0) {
-      error.Time = 'Start Time cannot be greater than End Time'
-      error.endTime = 'End Time cannot be less than Start Time'
+      error.timePicker = 'Start Time cannot be greater than End Time'
     }
 
     if (Object.keys(error).length) {
